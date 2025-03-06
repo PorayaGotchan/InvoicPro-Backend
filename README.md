@@ -1,97 +1,47 @@
-# Get start with POSWeb Backend
-As you've clone this project, don't forget to run this command in this project
-## npm i
-![npm_i](https://github.com/user-attachments/assets/711ca280-4678-46b0-a3e3-7d56bacfb06e)
+เริ่มด้วยการ npm i ก่อน และตรวจสอบให้แน่ใจว่า docker(ฐานข้อมูล) ทำการรันอยู่
+Backend มีด้วยกัน 5 ส่วนหลักๆ คือ
+1.server 2.routes 3.models 4.controllers 5.config  
 
-## Make sure your database is running !!
+1.server
+![image](https://github.com/user-attachments/assets/f3cdc3ee-2ca8-4637-bf89-15abf48482be)  
+มีหน้าที่ทำการ การรับข้อมูล JSON และแสดงข้อความ DB Connected! ถ้าสามารถเชื่อมต่อกับ Data base ได้แล้ว และแสดงข้อความ Server is running ที่ port ไหน  
 
-# Now you should ready to run this project now!
+2.routs  
+![image](https://github.com/user-attachments/assets/04ff8685-7419-4488-8851-75e7412a7d3f)  
+มีหน้าที่กำหนดเส้นทาง  
 
-## First of all, you have to make sure to check this config file
-You should to config it to match to your Database
+3.models มีด้วยกัน 2 ส่วน คือ  
+3.1index  
+![image](https://github.com/user-attachments/assets/751f2281-0007-4a66-9e1e-abcec6caa469)  
+มีหน้าที่เชื่อมต่อกับฐานข้อมูล  
+3.2Invoicpro.model  
+![image](https://github.com/user-attachments/assets/83999599-88fc-4978-b103-a32611997bbd)  
+มีหน้าที่สร้างตาราง หรือ กำหนดฟิว  
 
-![CheckOnConfig](https://github.com/user-attachments/assets/b6d435e6-757e-40c0-a94c-d99df3a7de40)
+4.controllers  
+![image](https://github.com/user-attachments/assets/c84f290e-47fb-4069-abf7-14a8bfb1f6c5)
+![image](https://github.com/user-attachments/assets/6d99092f-51e0-4e5f-a96b-b02ac0dbc1ba)
+![image](https://github.com/user-attachments/assets/d766c974-d030-4652-954f-9bd6bc0b31c3)
+![image](https://github.com/user-attachments/assets/7005cc34-4035-4fec-83d3-9b9ca73686a3)
+![image](https://github.com/user-attachments/assets/fa913ebb-0497-4ed9-b33b-4e17c6b4d62e)  
+เป็นการกำหนดการทำงาน ว่า Creat หรือ Edit หรือ Delect หรือ การสั่งงานที่ทุกอย่างผ่าน id  
 
-# Let's see each part of this code, what it's doing ?
-First, server.js, it's endpoint of this project.
-And it's the main part to start the server by this command.
-## node server.js or npm start
+5.config  
+![image](https://github.com/user-attachments/assets/9babbc1b-cf15-4fc5-94b1-a5d691715d52)  
+เป็นการตั้งค่าการเชื่อมต่อ
+เช่น Data base ชื่อ Invoicpro
+password คือ 1234
+dialect คือ postgres
 
-![Start Server](https://github.com/user-attachments/assets/05460eec-431c-429f-8d8f-0b5a3b2ae17a)
 
-## This project has 4 main part to run, in app folder
-### -config
-### -controllers
-### -models
-### -routes
 
-![Backend File](https://github.com/user-attachments/assets/869ba12f-a925-43e5-b569-c5e60c8524f7)
 
-# config
-This file contains every config you need to run this project.
-For now, it contains Database configuration
 
-![database configuration](https://github.com/user-attachments/assets/6b8ab26e-d2e5-4303-8f56-bcb3fd14572d)
 
-# controllers
-This file contains every action of APIs to do CRUD.
-Create
-Read
-Update
-Delete
 
-## This function have for Read
 
-![FindAll](https://github.com/user-attachments/assets/27e46683-e0fb-4be5-9f51-17798183c6b3)
 
-## This function have for Create
 
-![Create](https://github.com/user-attachments/assets/71e72174-c6b6-4c46-9791-1e32bd069261)
-
-## This function have for Read, but specific with id
-
-![FindByID](https://github.com/user-attachments/assets/86390f32-9919-4d90-8192-83253f156990)
-
-## This funtion have for Update by id
-
-![Update_Backend](https://github.com/user-attachments/assets/0e0f2c1e-d93b-4ea7-a50b-deb2a886d231)
-
-## This function have for Delete by id
-
-![DeleteByID](https://github.com/user-attachments/assets/e65f8119-c1b7-45cf-a91f-5a72eead8c40)
-
-# models
-This file contains model of the table we'll create and plug to database
-
-## index.js
-it contains sequelize and use config to plug with database.
-And then export to use in other file
-
-![indexOfModel](https://github.com/user-attachments/assets/6255078a-bfbd-400e-a6af-ed74b77bf4ec)
-
-## product.model
-it contains model to create table in database and match to table.
-
-![ModelOfTable](https://github.com/user-attachments/assets/e432cf2c-461a-480a-b1e6-159aac219348)
-
-# routes
-This file contains routes of APIs to lead every requests to controllers.
-
-## user.routes
-it contains every routes to go to controllers.
-
-![routes](https://github.com/user-attachments/assets/11c6469b-6308-47c9-9c9d-a83b55b452b7)
-
-# server.js
-This file is an endpoint for every requests to go to other routes.
-
-It has allowed cors for Frontend project to pass through.
-
-Use sequelize from model to connect to database.
-
-And the last, it will listen to any request that come in on port 5000 which contained by .env config file
-
-![server js](https://github.com/user-attachments/assets/e72bd988-2958-4886-b7ad-6afa0496fb6a)
 
 
 
